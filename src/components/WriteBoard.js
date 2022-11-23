@@ -14,28 +14,34 @@ class WriteBoard extends Component {
         }
     }
 
+    change = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({ [name]: value })
+    }
+
     fileChange = (e) => {
         this.setState({ file: e.target.files[0] })
     }
 
     submit = (e) => {
+        e.preventDefault();
         const formData = new FormData();
         formData.append('writer', this.state.writer)
         formData.append('password', this.state.password)
         formData.append('subject', this.state.subject)
         formData.append('content', this.state.content)
         formData.append('file', this.state.file)
-        formData.append('filename', this.state.file.name)
 
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'content-type': 'multipart/form-data'
+        //     }
+        // }
 
-        axios.post('http://localhost:8080/api/write-board', formData, config)
-            .then((reponse) => {
-                alert(reponse.data);
+        axios.post('http://localhost:8080/api/write-board', formData)
+            .then((response) => {
+                alert(response.data);
             })
             .catch((error) => {
 
@@ -50,47 +56,47 @@ class WriteBoard extends Component {
                     <table>
                         <tr>
                             <td className='td_left'>
-                                <label for='board_name'>글쓴이</label>
+                                <label for='writer'>글쓴이</label>
                             </td>
                             <td className='td_right'>
-                                <input type='text' name='board_name' id='board_name' value={this.state.writer} />
+                                <input type='text' name='writer' id='writer' value={this.state.writer} onChange={this.change} />
                             </td>
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='board_pass'>비밀번호</label>
+                                <label for='password'>비밀번호</label>
                             </td>
                             <td className='td_right'>
-                                <input type='password' name='board_pass' id='board_pass' value={this.state.password} />
+                                <input type='password' name='password' id='password' value={this.state.password} onChange={this.change} />
                             </td>
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='board_subject'>제목</label>
+                                <label for='subject'>제목</label>
                             </td>
                             <td className='td_right'>
-                                <input type='text' name='board_subject' id='board_subject' value={this.state.subject} />
+                                <input type='text' name='subject' id='subject' value={this.state.subject} onChange={this.change} />
                             </td>
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='board_content'>내용</label>
+                                <label for='content'>내용</label>
                             </td>
                             <td className='td_right'>
-                                <textarea type='text' name='board_content' id='board_content' cols='40' rows='15' value={this.state.content} />
+                                <textarea type='text' name='content' id='content' cols='40' rows='15' value={this.state.content} onChange={this.change} />
                             </td>
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='board_file'>파일 첨부</label>
+                                <label for='file'>파일 첨부</label>
                             </td>
                             <td className='td_right'>
-                                <input type='file' name='board_file' id='board_file' value={this.state.file} onChange={this.fileChange} />
+                                <input type='file' name='file' id='file' onChange={this.fileChange} />
                             </td>
                         </tr>
                     </table>
                     <section id='commandCell'>
-                        <button>등록</button>&nbsp;&nbsp;
+                        <button onClick={this.submit}>등록</button>&nbsp;&nbsp;
                         <input type='reset' value='다시 쓰기' />
                     </section>
                 </form>
