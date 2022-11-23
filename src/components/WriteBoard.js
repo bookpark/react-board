@@ -32,6 +32,9 @@ class WriteBoard extends Component {
         formData.append('subject', this.state.subject)
         formData.append('content', this.state.content)
         formData.append('file', this.state.file)
+        const config = {
+
+        }
 
         // const config = {
         //     headers: {
@@ -39,7 +42,7 @@ class WriteBoard extends Component {
         //     }
         // }
 
-        axios.post('http://localhost:8080/api/write-board', formData)
+        axios.post('http://localhost:8080/api/write-board-v2', formData)
             .then((response) => {
                 alert(response.data);
             })
@@ -56,7 +59,7 @@ class WriteBoard extends Component {
                     <table>
                         <tr>
                             <td className='td_left'>
-                                <label for='writer'>글쓴이</label>
+                                <label htmlFor='writer'>글쓴이</label>
                             </td>
                             <td className='td_right'>
                                 <input type='text' name='writer' id='writer' value={this.state.writer} onChange={this.change} />
@@ -64,7 +67,7 @@ class WriteBoard extends Component {
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='password'>비밀번호</label>
+                                <label htmlFor='password'>비밀번호</label>
                             </td>
                             <td className='td_right'>
                                 <input type='password' name='password' id='password' value={this.state.password} onChange={this.change} />
@@ -72,7 +75,7 @@ class WriteBoard extends Component {
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='subject'>제목</label>
+                                <label htmlFor='subject'>제목</label>
                             </td>
                             <td className='td_right'>
                                 <input type='text' name='subject' id='subject' value={this.state.subject} onChange={this.change} />
@@ -80,7 +83,7 @@ class WriteBoard extends Component {
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='content'>내용</label>
+                                <label htmlFor='content'>내용</label>
                             </td>
                             <td className='td_right'>
                                 <textarea type='text' name='content' id='content' cols='40' rows='15' value={this.state.content} onChange={this.change} />
@@ -88,10 +91,10 @@ class WriteBoard extends Component {
                         </tr>
                         <tr>
                             <td className='td_left'>
-                                <label for='file'>파일 첨부</label>
+                                <label htmlFor='file'>파일 첨부</label>
                             </td>
                             <td className='td_right'>
-                                <input type='file' name='file' id='file' onChange={this.fileChange} />
+                                <input type='file' name='file' id='file' onChange={this.fileChange} accept='image/*' />
                             </td>
                         </tr>
                     </table>
