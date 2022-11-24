@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './ListBoard.css';
+import { Link } from 'react-router-dom';
 
 function ListBoard() {
 
@@ -30,7 +31,7 @@ function ListBoard() {
 
     return (
         <>
-            <h2>글 목록 <a href="#">게시판 글 쓰기</a></h2>
+            <h2>글 목록 <Link to={'/write'}>게시판 글 쓰기</Link></h2>
             <section>
                 <table>
                     <tbody>
