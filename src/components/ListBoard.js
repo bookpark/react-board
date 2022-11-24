@@ -42,7 +42,7 @@ function ListBoard() {
                         </tr>
                         {boards.map((board) => (
                             <tr key={board.id}>
-                                <td>{board.id}</td>
+                                <td><Link to={'/detail/'+board.id}>{board.id}</Link></td>
                                 <td>{board.writer}</td>
                                 <td>{board.subject}</td>
                             </tr>
