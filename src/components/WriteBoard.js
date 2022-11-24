@@ -32,9 +32,6 @@ class WriteBoard extends Component {
         formData.append('subject', this.state.subject)
         formData.append('content', this.state.content)
         formData.append('file', this.state.file)
-        const config = {
-
-        }
 
         // const config = {
         //     headers: {
@@ -45,6 +42,8 @@ class WriteBoard extends Component {
         axios.post('http://localhost:8080/api/write-board-v2', formData)
             .then((response) => {
                 alert(response.data);
+                // 글 등록 후 리디렉트
+                document.location.href = '/';
             })
             .catch((error) => {
 
