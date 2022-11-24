@@ -1,4 +1,5 @@
 import DetailBoard from './components/DetailBoard';
+import ListBoard from './components/ListBoard';
 import WriteBoard from './components/WriteBoard';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <WriteBoard />
       <DetailBoard />
+      <ListBoard />
     </div>
   );
 }
