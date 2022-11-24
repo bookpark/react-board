@@ -33,7 +33,7 @@ function ListBoard() {
         <>
             <h2>글 목록 <Link to={'/write'}>게시판 글 쓰기</Link></h2>
             <section>
-                <table>
+                <table className='table_list'>
                     <tbody>
                         <tr id='tr_top'>
                             <th>번호</th>
