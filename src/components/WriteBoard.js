@@ -33,11 +33,11 @@ class WriteBoard extends Component {
         formData.append('content', this.state.content)
         formData.append('file', this.state.file)
 
-        // const config = {
-        //     headers: {
-        //         'content-type': 'multipart/form-data'
-        //     }
-        // }
+        const config = {
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
 
         axios.post('http://localhost:8080/api/write-board-v2', formData)
             .then((response) => {
