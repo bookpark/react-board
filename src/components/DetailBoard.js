@@ -35,7 +35,7 @@ class DetailBoard extends Component {
                                 <label htmlFor='writer'>글쓴이</label>
                             </td>
                             <td className='td_right'>
-                                <input type='text' name='writer' id='writer' value={this.state.writer} />
+                                <input type='text' name='writer' value={this.state.writer} />
                             </td>
                         </tr>
                         <tr>
@@ -43,7 +43,7 @@ class DetailBoard extends Component {
                                 <label htmlFor='subject'>제목</label>
                             </td>
                             <td className='td_right'>
-                                <input type='text' name='subject' id='subject' value={this.state.subject} />
+                                <input type='text' name='subject' value={this.state.subject} />
                             </td>
                         </tr>
                         <tr>
@@ -51,7 +51,7 @@ class DetailBoard extends Component {
                                 <label htmlFor='content'>내용</label>
                             </td>
                             <td className='td_right'>
-                                <textarea type='text' name='content' id='content' cols='40' rows='15' value={this.state.content} />
+                                <textarea type='text' name='content' cols='40' rows='15' value={this.state.content} />
                             </td>
                         </tr>
                         <tr>
