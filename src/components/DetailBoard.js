@@ -53,7 +53,7 @@ function DetailBoard() {
                         <td className='td_right'>
                             <textarea type='text' name='content' cols='40' rows='15' value={content} />
                         </td>
-                    </tr>s
+                    </tr>
                 </table>
                 <section id='commandCell'>
                     <Link to={'/update/' + id}>수정</Link>&nbsp;&nbsp;
